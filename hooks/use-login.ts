@@ -11,11 +11,11 @@ export default function useLogin() {
 	const [login, { isLoading }] = useLoginMutation();
 
 	const [formData, setFormData] = useState({
-		email: '',
+		identifier: '',
 		password: '',
 	});
 
-	const { email, password } = formData;
+	const { identifier, password } = formData;
 
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
@@ -26,7 +26,7 @@ export default function useLogin() {
 	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		login({ email, password })
+		login({ identifier, password })
 			.unwrap()
 			.then(() => {
 				dispatch(setAuth());
@@ -39,7 +39,7 @@ export default function useLogin() {
 	};
 
 	return {
-		email,
+		identifier,
 		password,
 		isLoading,
 		onChange,
