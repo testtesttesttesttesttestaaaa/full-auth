@@ -4,14 +4,14 @@ import { useLogin } from '@/hooks';
 import { Form } from '@/components/forms';
 
 export default function LoginForm() {
-	const { email, password, isLoading, onChange, onSubmit } = useLogin();
+	const { identifier, password, isLoading, onChange, onSubmit } = useLogin();
 
 	const config = [
 		{
 			labelText: 'Email address',
-			labelId: 'email',
-			type: 'email',
-			value: email,
+			labelId: 'identifier',
+			type: 'text',
+			value: identifier,
 			required: true,
 		},
 		{
