@@ -9,7 +9,7 @@ import { Mutex } from 'async-mutex';
 
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
-	baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api`,
+	baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api/auth`,
 	credentials: 'include',
 });
 const baseQueryWithReauth: BaseQueryFn<
@@ -26,7 +26,7 @@ const baseQueryWithReauth: BaseQueryFn<
 			try {
 				const refreshResult = await baseQuery(
 					{
-						url: '/jwt/refresh/',
+						url: '/token/refresh/',
 						method: 'POST',
 					},
 					api,
